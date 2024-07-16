@@ -63,6 +63,16 @@ const TabsLayout = () => {
 					}}
 				/>
 				<Tabs.Screen
+					name="community"
+					options={{
+						title: "Community",
+						headerShown: false,
+						tabBarIcon: ({ color, focused }) => (
+							<TabIcon icon={icons.community} color={color} />
+						),
+					}}
+				/>
+				<Tabs.Screen
 					name="profile"
 					options={{
 						title: "Profile",
