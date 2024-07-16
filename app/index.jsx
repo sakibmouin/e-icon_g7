@@ -14,7 +14,7 @@ export default function App() {
 				<View className="w-full justify-center items-center min-h-[85vh] px-4">
 					<Text className="text-white text-3xl">This is e-Icon Group 7</Text>
 					<CustomButton
-						title="Continue with Email"
+						title="Go to Home"
 						handlePress={() => {
 							router.push("/home");
 						}}
