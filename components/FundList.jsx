@@ -2,7 +2,7 @@ import { View, Text, Image, Button, TouchableOpacity } from "react-native";
 import React from "react";
 import { router } from "expo-router";
 
-const FundList = ({ title, icon, path }) => {
+const FundList = ({ title, icon, path, bg }) => {
 	const handlePress = () => {
 		router.push("/" + path);
 	};
@@ -10,9 +10,9 @@ const FundList = ({ title, icon, path }) => {
 	const isLoading = false;
 
 	return (
-		<View className="rounded-xl w-full bg-gray-700">
+		<View className="rounded-xl w-full bg-[#1B232C]">
 			<View className="flex flex-row p-4 gap-4 justify-center align-middle">
-				<View className="self-center">
+				<View className={`p-1 rounded-xl self-center bg-${bg}`}>
 					<Image
 						source={{ uri: icon }}
 						className="h-[70px] w-[70px] rounded-xl"
