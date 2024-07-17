@@ -9,6 +9,7 @@ const list = [
 		$id: "kjlk34j5kj23h4k5jhl234jh23kj4l",
 		icon: "https://cloud.appwrite.io/v1/storage/buckets/6696751b002a0827d855/files/66976b4600333fefd6c3/view?project=6690ac320023fc19ec92&mode=admin",
 		bg: "primary",
+		path: "/pages/sjig",
 	},
 	{
 		name: "K-Sartup Grand Challenge 2024",
@@ -38,7 +39,12 @@ const Fund = () => {
 					data={list}
 					keyExtractor={(item) => item.$id}
 					renderItem={({ item }) => (
-						<FundList title={item.name} icon={item.icon} bg={item.bg} />
+						<FundList
+							title={item.name}
+							icon={item.icon}
+							bg={item.bg}
+							path={item.path}
+						/>
 					)}
 					ListHeaderComponent={() => (
 						<Text className="text-3xl text-white font-sfBold mb-8">
