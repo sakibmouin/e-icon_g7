@@ -1,9 +1,9 @@
-import { View, Text } from "react-native";
+import { View, Text, FlatList } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import InScreenList from "./InScreenList";
 
-const ScreenList = ({ list, header }) => {
+const ScreenList = ({ list, header, buttonText }) => {
 	return (
 		<SafeAreaView className="bg-primary h-full px-4">
 			<View className="my-6">
@@ -16,6 +16,7 @@ const ScreenList = ({ list, header }) => {
 							icon={item.icon}
 							bg={item.bg}
 							path={item.path}
+							buttonText={buttonText}
 						/>
 					)}
 					ListHeaderComponent={() => (

@@ -2,7 +2,7 @@ import { View, Text, Image, Button, TouchableOpacity } from "react-native";
 import React from "react";
 import { router } from "expo-router";
 
-const FundList = ({ title, icon, path, bg }) => {
+const FundList = ({ title, icon, path, bg, buttonText }) => {
 	const handlePress = () => {
 		router.push("/" + path);
 	};
@@ -27,7 +27,9 @@ const FundList = ({ title, icon, path, bg }) => {
 							isLoading ? "opacity-50" : ""
 						}`}
 					>
-						<Text className="self-center text-white font-sft">SEE MORE</Text>
+						<Text className="self-center text-white font-sft">
+							{buttonText}
+						</Text>
 					</TouchableOpacity>
 				</View>
 			</View>

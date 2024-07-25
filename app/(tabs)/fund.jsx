@@ -1,6 +1,5 @@
 import { ScrollView, View, Text, FlatList } from "react-native";
 import React from "react";
-import { SafeAreaView } from "react-native-safe-area-context";
 import ScreenList from "../../components/ScreenList";
 
 const list = [
@@ -35,7 +34,13 @@ const list = [
 ];
 
 const Fund = () => {
-	return <ScreenList list={list} header="Funding Opportunities" />;
+	return (
+		<ScreenList
+			list={list}
+			header="Funding Opportunities"
+			buttonText="See More"
+		/>
+	);
 };
 
 export default Fund;
