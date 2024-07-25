@@ -33,7 +33,7 @@ const list = [
 
 const Fund = () => {
 	return (
-		<SafeAreaView className="bg-primary h-full px-8">
+		<SafeAreaView className="bg-primary h-full px-4">
 			<View className="my-6">
 				<FlatList
 					data={list}
