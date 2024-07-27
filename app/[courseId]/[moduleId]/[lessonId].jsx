@@ -34,7 +34,7 @@ const Lesson = () => {
 	const handleNextLesson = () => {
 		if (lessonIndex < module.lessons.length - 1) {
 			const nextLessonId = module.lessons[lessonIndex + 1].id;
-			router.push(`/${courseId}/${moduleId}/${nextLessonId}`);
+			router.replace(`/${courseId}/${moduleId}/${nextLessonId}`);
 		} else {
 			alert("This is the last lesson.");
 		}
