@@ -68,6 +68,7 @@ const RootLayout = () => {
 			<Stack.Screen name="(auth)" options={{ headerShown: false }} />
 			<Stack.Screen name="(tabs)" options={{ headerShown: false }} />
 			<Stack.Screen name="search/[query]" options={{ headerShown: false }} />
+			<Stack.Screen name="course/[courseId]" options={{ headerShown: false }} />
 		</Stack>
 	);
 	// the <Stack> component manages a stack of screens, allowing users to navigate forward to new screens while pushing them onto the stack, and backward by popping screens off the stack.

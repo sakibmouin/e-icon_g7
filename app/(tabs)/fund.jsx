@@ -1,6 +1,7 @@
-import { ScrollView, View, Text, FlatList } from "react-native";
+import { View, Text, FlatList } from "react-native";
 import React from "react";
-import ScreenList from "../../components/ScreenList";
+import InScreenList from "../../components/InScreenList";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const list = [
 	{
@@ -35,11 +36,27 @@ const list = [
 
 const Fund = () => {
 	return (
-		<ScreenList
-			list={list}
-			header="Funding Opportunities"
-			buttonText="See More"
-		/>
+		<SafeAreaView className="py-6 px-5 bg-primary h-full">
+			<FlatList
+				data={list}
+				keyExtractor={(item) => item.$id}
+				renderItem={({ item }) => (
+					<InScreenList
+						title={item.name}
+						icon={item.icon}
+						bg={item.bg}
+						path={item.path}
+						buttonText="See More"
+					/>
+				)}
+				ListHeaderComponent={() => (
+					<Text className="text-3xl text-white font-sfBold mb-8">
+						Funding Opportunities
+					</Text>
+				)}
+				ItemSeparatorComponent={() => <View className="h-2"></View>}
+			></FlatList>
+		</SafeAreaView>
 	);
 };
 
