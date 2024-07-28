@@ -1,35 +1,89 @@
-// Entry Point of the App.
-// this file serves as the entry point for the app's UI, defining how the first screen looks and behaves.
+import React from "react";
+import { View, StyleSheet } from "react-native";
+import { Redirect } from "expo-router";
+import Animated, {
+	useAnimatedRef,
+	useAnimatedScrollHandler,
+	useSharedValue,
+} from "react-native-reanimated";
 
-import { StatusBar } from "expo-status-bar";
-import { ScrollView, Text, View, Image } from "react-native";
-import { Redirect, router, useRouter } from "expo-router";
-import { SafeAreaView } from "react-native-safe-area-context";
-import CustomButton from "../components/CustomButton";
 import { useGlobalContext } from "../context/GlobalProvider";
+import Pagination from "../components/onboarding/Pagination";
+import OnboardingButton from "../components/onboarding/OnboardingButton";
+import RenderItem from "../components/onboarding/RenderItem";
+import data from "./data/onboarding";
 
-export default function App() {
+const App = () => {
 	const { loading, isLogged } = useGlobalContext();
-	console.log(isLogged);
+	const flatListRef = useAnimatedRef();
+	const x = useSharedValue(0);
+	const flatListIndex = useSharedValue(0);
+
+	const onViewableItemsChanged = ({ viewableItems }) => {
+		if (viewableItems?.[0]?.index !== null) {
+			flatListIndex.value = viewableItems[0].index;
+		}
+	};
+
+	const onScroll = useAnimatedScrollHandler({
+		onScroll: (event) => {
+			x.value = event.contentOffset.x;
+		},
+	});
+
 	if (!loading && isLogged) {
 		return <Redirect href="/home" />;
-	} else {
-		return (
-			<SafeAreaView className="bg-primary h-full flex-1 items-center justify-center">
-				<ScrollView contentContainerStyle={{ height: "100%" }}>
-					<View className="w-full justify-center items-center min-h-[85vh] px-4">
-						<Text className="text-white text-3xl">This is e-Icon Group 7</Text>
-						<CustomButton
-							title="Go to Home"
-							handlePress={() => {
-								router.push("/sign-in");
-							}}
-							containerStyles="w-full mt-7"
-						/>
-					</View>
-				</ScrollView>
-				<StatusBar />
-			</SafeAreaView>
-		);
 	}
-}
+
+	return (
+		<View style={styles.container}>
+			<Animated.FlatList
+				ref={flatListRef}
+				onScroll={onScroll}
+				data={data}
+				renderItem={({ item, index }) => (
+					<RenderItem item={item} index={index} x={x} />
+				)}
+				keyExtractor={(item) => item.id.toString()}
+				scrollEventThrottle={16}
+				horizontal
+				bounces={false}
+				pagingEnabled
+				showsHorizontalScrollIndicator={false}
+				onViewableItemsChanged={onViewableItemsChanged}
+				viewabilityConfig={{
+					minimumViewTime: 300,
+					viewAreaCoveragePercentThreshold: 10,
+				}}
+			/>
+			<View style={styles.bottomContainer}>
+				<Pagination data={data} x={x} />
+				<OnboardingButton
+					flatListRef={flatListRef}
+					flatListIndex={flatListIndex}
+					dataLength={data.length}
+					x={x}
+				/>
+			</View>
+		</View>
+	);
+};
+
+const styles = StyleSheet.create({
+	container: {
+		flex: 1,
+	},
+	bottomContainer: {
+		flexDirection: "row",
+		justifyContent: "space-between",
+		alignItems: "center",
+		marginHorizontal: 30,
+		paddingVertical: 30,
+		position: "absolute",
+		bottom: 20,
+		left: 0,
+		right: 0,
+	},
+});
+
+export default App;
