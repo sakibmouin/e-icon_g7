@@ -69,7 +69,7 @@ const SignIn = () => {
 						entering={FadeInUp.duration(1000).springify()}
 						className="text-white font-bold tracking-wider text-5xl"
 					>
-						Login
+						Signup
 					</Animated.Text>
 				</View>
 
@@ -128,9 +128,9 @@ const SignIn = () => {
 						entering={FadeInDown.delay(600).duration(1000).springify()}
 						className="flex-row justify-center mt-6"
 					>
-						<Text>Don't have an account?</Text>
-						<TouchableOpacity onPress={() => router.push("/sign-up")}>
-							<Text className="text-secondary pl-2">Sign Up</Text>
+						<Text>Already have an account?</Text>
+						<TouchableOpacity onPress={() => router.push("/sign-in")}>
+							<Text className="text-secondary pl-2">Sign In</Text>
 						</TouchableOpacity>
 					</Animated.View>
 				</View>

@@ -1,7 +1,7 @@
 import { View, Text, ScrollView, TouchableOpacity } from "react-native";
 import React, { useLayoutEffect } from "react";
 import { useRouter, useLocalSearchParams } from "expo-router";
-import { courses } from "../data/courses";
+import { courses } from "../../data/courses";
 import { useNavigation } from "@react-navigation/native";
 
 const Modules = () => {
@@ -38,7 +38,7 @@ const Modules = () => {
 						<TouchableOpacity
 							key={lesson.id}
 							onPress={() =>
-								router.push(`/${courseId}/${module.id}/${lesson.id}`)
+								router.push(`/course/${courseId}/${module.id}/${lesson.id}`)
 							}
 						>
 							<View className="flex flex-row">

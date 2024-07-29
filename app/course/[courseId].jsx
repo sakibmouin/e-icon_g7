@@ -57,7 +57,7 @@ const CourseInfo = () => {
 				<CustomButton
 					title="Open Course"
 					handlePress={() => {
-						router.push(`/${courseId}/modules`);
+						router.push(`/course/${courseId}/modules`);
 					}}
 				/>
 			</View>

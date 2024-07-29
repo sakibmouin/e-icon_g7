@@ -1,7 +1,7 @@
 import { View, Text, ScrollView, TouchableOpacity } from "react-native";
 import React, { useLayoutEffect } from "react";
 import { useRouter, useLocalSearchParams } from "expo-router";
-import { courses } from "../../data/courses";
+import { courses } from "../../../data/courses";
 import { useNavigation } from "@react-navigation/native";
 
 const Lesson = () => {
@@ -34,7 +34,7 @@ const Lesson = () => {
 	const handleNextLesson = () => {
 		if (lessonIndex < module.lessons.length - 1) {
 			const nextLessonId = module.lessons[lessonIndex + 1].id;
-			router.replace(`/${courseId}/${moduleId}/${nextLessonId}`);
+			router.replace(`/course/${courseId}/${moduleId}/${nextLessonId}`);
 		} else {
 			alert("This is the last lesson.");
 		}
