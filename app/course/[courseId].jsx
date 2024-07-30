@@ -1,26 +1,26 @@
-import { View, Text, FlatList } from "react-native";
+import { View, Text, FlatList, TouchableOpacity } from "react-native";
 import React, { useLayoutEffect } from "react";
 import { useRouter, useLocalSearchParams } from "expo-router";
 import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { router } from "expo-router";
 
 import { courses } from "../data/courses";
-import CustomButton from "../../components/CustomButton";
 import CourseHeader from "../../components/Learn/Course/CourseHeader";
-import ListItem from "../../components/Learn/Course/ListItem";
+import ModuleBox from "../../components/Learn/Course/ModuleBox";
+
+import { icons } from "../../constants";
 
 const CourseInfo = () => {
 	const getCourseById = (courseId) => {
 		return courses[courseId];
 	};
 
-	const router = useRouter();
 	const { courseId } = useLocalSearchParams();
 	const course = getCourseById(courseId);
 
 	const courseName = course.name;
 	const aboutCourse = course.aboutCourse;
-	const courseBenefits = course.benefits;
 	const courseModules = course.modules;
 	const courseImage = course.courseImage;
 
@@ -41,26 +41,26 @@ const CourseInfo = () => {
 						courseImage={courseImage}
 					/>
 				}
-				data={courseBenefits}
+				data={courseModules}
 				keyExtractor={(item) => item.id.toString()}
-				renderItem={({ item }) => <ListItem item={item} />}
+				renderItem={({ item }) => (
+					<View key={item.id}>
+						<View
+							onPress={() => router.push(`/course/${courseId}/${item.id}`)}
+							className="mb-3"
+						>
+							<ModuleBox
+								heading={item.title}
+								iconPath={icons.fund}
+								onPress={() => router.push(`/course/${courseId}/${item.id}`)}
+							/>
+						</View>
+					</View>
+				)}
 				contentContainerStyle={{ paddingBottom: 80 }} // Ensure the list has enough bottom padding for the button
 			/>
-			<View
-				style={{
-					position: "absolute",
-					bottom: 16,
-					left: 16,
-					right: 16,
-				}}
-			>
-				<CustomButton
-					title="Open Course"
-					handlePress={() => {
-						router.push(`/course/${courseId}/modules`);
-					}}
-				/>
-			</View>
+
+			<View></View>
 		</SafeAreaView>
 	);
 };

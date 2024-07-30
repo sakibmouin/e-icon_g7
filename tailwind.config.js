@@ -18,6 +18,9 @@ module.exports = {
 				gray: {
 					100: "#1B232C",
 				},
+				opacitywhite: "#1B232C",
+				red: "#ea526f",
+				blue: "#279af1",
 			},
 			fontFamily: {
 				sfBlack: ["SF-Pro-Display-Black", "sans-serif"],

@@ -10,7 +10,7 @@ const FundList = ({ title, icon, path, bg, buttonText }) => {
 	const isLoading = false;
 
 	return (
-		<View className="rounded-xl w-full bg-[#1B232C]">
+		<View className="rounded-xl w-full bg-opacitywhite">
 			<TouchableOpacity
 				onPress={handlePress}
 				className={` ${isLoading ? "opacity-50" : ""}`}

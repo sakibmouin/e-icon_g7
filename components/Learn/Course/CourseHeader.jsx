@@ -35,7 +35,9 @@ const CourseHeader = ({ courseName, aboutCourse, courseImage }) => {
 					</Text>
 				</TouchableOpacity>
 			</View>
-			<Text className="font-sfSemibold text-secondary text-lg">Benefits</Text>
+			<Text className="font-sfSemibold text-secondary text-lg mb-2">
+				Modules
+			</Text>
 		</View>
 	);
 };
