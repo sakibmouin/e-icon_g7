@@ -18,6 +18,7 @@ module.exports = {
 				gray: {
 					100: "#1B232C",
 				},
+				white: "#f5f5f5",
 				opacitywhite: "#1B232C",
 				red: "#ea526f",
 				blue: "#279af1",

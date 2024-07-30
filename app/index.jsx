@@ -33,6 +33,7 @@ const App = () => {
 	});
 
 	if (!loading && isLogged) {
+		router.dismissAll();
 		return <Redirect href="/home" />;
 	} else {
 		return (

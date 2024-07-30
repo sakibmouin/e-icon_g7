@@ -5,7 +5,7 @@ import Animated, {
 	interpolate,
 	useAnimatedStyle,
 } from "react-native-reanimated";
-import data from "../../app/data/onboarding";
+
 import LottieView from "lottie-react-native";
 
 const RenderItem = ({ index, x, item }) => {

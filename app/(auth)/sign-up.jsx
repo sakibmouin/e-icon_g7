@@ -39,7 +39,7 @@ const SignIn = () => {
 			setIsLogged(true);
 
 			Alert.alert("Success", "User signed in successfully");
-			router.replace("/home");
+			router.push("/Quiz");
 		} catch (error) {
 			Alert.alert("Error", error.message);
 		} finally {
