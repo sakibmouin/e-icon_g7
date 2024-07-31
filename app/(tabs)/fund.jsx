@@ -2,6 +2,7 @@ import { View, Text, FlatList } from "react-native";
 import React from "react";
 import InScreenList from "../../components/InScreenList";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { fundData } from "../data/fundData";
 
 const list = [
 	{
@@ -35,6 +36,8 @@ const list = [
 ];
 
 const Fund = () => {
+	const data = Object.values(fundData);
+
 	return (
 		<SafeAreaView className="py-6 px-5 bg-primary h-full">
 			<FlatList

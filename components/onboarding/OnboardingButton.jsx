@@ -79,7 +79,7 @@ const OnboardingButton = ({ flatListRef, flatListIndex, dataLength, x }) => {
 						index: flatListIndex.value + 1,
 					});
 				} else {
-					router.push("/Quiz");
+					router.push("/home");
 				}
 			}}
 		>

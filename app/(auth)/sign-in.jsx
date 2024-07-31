@@ -48,7 +48,7 @@ const SignIn = () => {
 	};
 
 	return (
-		<View className="flex-1 bg-white">
+		<View className="flex-1 bg-primary">
 			<Image source={imgTop} className="absolute h-full w-full" />
 			<View className="flex-row justify-around w-full absolute -top-4">
 				<Animated.Image

@@ -1,5 +1,5 @@
 import { View, StyleSheet } from "react-native";
-import { Redirect } from "expo-router";
+import { Redirect, router } from "expo-router";
 import Animated, {
 	useAnimatedRef,
 	useAnimatedScrollHandler,
@@ -13,7 +13,7 @@ import RenderItem from "../components/onboarding/RenderItem";
 import data from "./data/onboarding";
 
 const App = () => {
-	const { loading, isLogged } = useGlobalContext();
+	const { loading, isLogged, user } = useGlobalContext();
 	const flatListRef = useAnimatedRef();
 	const x = useSharedValue(0);
 	const flatListIndex = useSharedValue(0);
@@ -33,7 +33,6 @@ const App = () => {
 	});
 
 	if (!loading && isLogged) {
-		router.dismissAll();
 		return <Redirect href="/home" />;
 	} else {
 		return (

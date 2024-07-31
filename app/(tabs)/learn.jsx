@@ -5,8 +5,7 @@ import {
 	TouchableOpacity,
 	ImageBackground,
 } from "react-native";
-import React, { useEffect } from "react";
-import ScreenList from "../../components/ScreenList";
+import React from "react";
 import { Link, router } from "expo-router";
 import { courses } from "../data/courses";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -74,16 +73,16 @@ const styles = StyleSheet.create({
 
 export default Learn;
 
-{
-	Object.values(courses).map((course) => (
-		<View key={course.id} className="p-5 mb-5 rounded-xl">
-			<Text className="font-sfBold text-white text-[18px]">{course.name}</Text>
-			<Link href={`/course/${course.id}`}>
-				<Text style={styles.link}>View Course</Text>
-			</Link>
-		</View>
-	));
-}
+// {
+// 	Object.values(courses).map((course) => (
+// 		<View key={course.id} className="p-5 mb-5 rounded-xl">
+// 			<Text className="font-sfBold text-white text-[18px]">{course.name}</Text>
+// 			<Link href={`/course/${course.id}`}>
+// 				<Text style={styles.link}>View Course</Text>
+// 			</Link>
+// 		</View>
+// 	));
+// }
 
 {
 	/* <ScreenList
