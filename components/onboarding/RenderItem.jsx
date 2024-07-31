@@ -5,8 +5,8 @@ import Animated, {
 	interpolate,
 	useAnimatedStyle,
 } from "react-native-reanimated";
-
 import LottieView from "lottie-react-native";
+import { FONTS } from "../../constants";
 
 const RenderItem = ({ index, x, item }) => {
 	const { width: SCREEN_WIDTH } = useWindowDimensions();
@@ -87,10 +87,11 @@ const styles = StyleSheet.create({
 	},
 	itemText: {
 		textAlign: "center",
-		fontSize: 44,
+		fontSize: 32,
 		fontWeight: "bold",
 		marginBottom: 10,
 		marginHorizontal: 20,
+		fontFamily: FONTS.bold,
 	},
 	circleContainer: {
 		...StyleSheet.absoluteFillObject,

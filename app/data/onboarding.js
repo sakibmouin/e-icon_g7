@@ -4,24 +4,38 @@ const data = [
 	{
 		id: 1,
 		animation: require("../../assets/animations/onboarding/anim3.json"),
-		text: "Lorem Ipsum dolor sit amet",
-		textColor: "#f8dac2",
-		backgroundColor: "#154f40",
+		text: "Welcome to STARTUP DOCTOR - Your Gateway to Entrepreneurial Success!",
+		textColor: "#f5f5f5",
+		backgroundColor: "#12171F",
 	},
 	{
 		id: 2,
 		animation: require("../../assets/animations/onboarding/anim3.json"),
-		text: "Lorem Ipsum dolor sit amet",
-		textColor: "#154f40",
-		backgroundColor: "#fd94b2",
+		text: "Unlock Practical Knowledge at Every Stage of Your Startup Journey.",
+		textColor: "#f5f5f5",
+		backgroundColor: "#279af1",
 	},
-	// {
-	// 	id: 3,
-	// 	animation: require("../../assets/animations/onboarding/anim3.json"),
-	// 	text: "Lorem Ipsum dolor sit amet",
-	// 	textColor: "black",
-	// 	backgroundColor: "#f8dac2",
-	// },
+	{
+		id: 3,
+		animation: require("../../assets/animations/onboarding/anim3.json"),
+		text: "Discover Funding Opportunities to Turn Your Vision into Reality.",
+		textColor: "#f5f5f5",
+		backgroundColor: "#ea526f",
+	},
+	{
+		id: 4,
+		animation: require("../../assets/animations/onboarding/anim3.json"),
+		text: "Network and Collaborate with Other Businesses to Accelerate Growth.",
+		textColor: "#f5f5f5",
+		backgroundColor: "#12171F",
+	},
+	{
+		id: 5,
+		animation: require("../../assets/animations/onboarding/anim3.json"),
+		text: "Ready to Transform Your Startup Dreams into Reality? Let's Get Started!",
+		textColor: "#f5f5f5",
+		backgroundColor: "#279af1",
+	},
 ];
 
 export default data;

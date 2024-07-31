@@ -1,5 +1,4 @@
 import {
-	FlatList,
 	StyleSheet,
 	TouchableWithoutFeedback,
 	useWindowDimensions,
@@ -13,6 +12,7 @@ import Animated, {
 } from "react-native-reanimated";
 import { useNavigation } from "@react-navigation/native";
 import { router } from "expo-router";
+import AntDesign from "@expo/vector-icons/AntDesign";
 
 const OnboardingButton = ({ flatListRef, flatListIndex, dataLength, x }) => {
 	const { width: SCREEN_WIDTH } = useWindowDimensions();
@@ -63,7 +63,7 @@ const OnboardingButton = ({ flatListRef, flatListIndex, dataLength, x }) => {
 		const backgroundColor = interpolateColor(
 			x.value,
 			[0, SCREEN_WIDTH, 2 * SCREEN_WIDTH],
-			["#005b4f", "#1e2169", "#F15937"]
+			["#35917a", "#062e60", "#070600"]
 		);
 
 		return {
@@ -79,7 +79,7 @@ const OnboardingButton = ({ flatListRef, flatListIndex, dataLength, x }) => {
 						index: flatListIndex.value + 1,
 					});
 				} else {
-					router.push("/home");
+					router.push("/sign-in");
 				}
 			}}
 		>
@@ -89,10 +89,14 @@ const OnboardingButton = ({ flatListRef, flatListIndex, dataLength, x }) => {
 				<Animated.Text style={[styles.textButton, textAnimationStyle]}>
 					Get Started
 				</Animated.Text>
-				<Animated.Image
-					source={require("../../assets/images/onboarding/ArrowIcon.png")}
-					style={[styles.arrow, arrowAnimationStyle]}
-				/>
+				<Animated.View style={[styles.arrow, arrowAnimationStyle]}>
+					<AntDesign
+						className="absolute"
+						name="arrowright"
+						size={30}
+						color="white"
+					/>
+				</Animated.View>
 			</Animated.View>
 		</TouchableWithoutFeedback>
 	);
@@ -102,7 +106,7 @@ export default OnboardingButton;
 
 const styles = StyleSheet.create({
 	container: {
-		backgroundColor: "#1e2169",
+		backgroundColor: "#fff",
 		padding: 10,
 		borderRadius: 100,
 		justifyContent: "center",
