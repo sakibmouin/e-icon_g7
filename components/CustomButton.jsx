@@ -38,7 +38,9 @@ const CustomButton = ({
 			className={classes}
 			disabled={isLoading}
 		>
-			<Text className={`text-white font-psemibold text-lg ${textStyles}`}>
+			<Text
+				className={`font-sfSemibold translate-y-0.5 text-white font-psemibold text-xl ${textStyles}`}
+			>
 				{title}
 			</Text>
 		</TouchableOpacity>

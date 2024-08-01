@@ -1,5 +1,5 @@
 import animatedLogo from "../assets/images/animatedLogo.gif";
 
-import logo from "../assets/images/logoMain.png";
+import logoMain from "../assets/images/logoMain.png";
 
-export default { logo, animatedLogo };
+export default { logoMain, animatedLogo };

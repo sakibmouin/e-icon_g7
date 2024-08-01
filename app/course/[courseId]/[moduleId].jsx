@@ -124,9 +124,8 @@ const Module = () => {
 						);
 					} else if (section.type === "image") {
 						return (
-							<View className="mb-2">
+							<View className="mb-2" key={index}>
 								<Image
-									key={index}
 									source={section.content}
 									style={{
 										width: SCREEN_WIDTH - 40,
@@ -171,7 +170,7 @@ const Module = () => {
 				<View className="h-10"></View>
 			</ScrollView>
 
-			<View className="p-4 flex flex-row justify-between bg-secondary">
+			<View className="p-4 flex flex-row justify-between bg-secondary mt-1">
 				<TouchableOpacity
 					onPress={handlePreviousModule}
 					className="flex flex-row justify-center items-center"
