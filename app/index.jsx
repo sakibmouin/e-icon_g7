@@ -18,7 +18,7 @@ const App = () => {
 	const x = useSharedValue(0);
 	const flatListIndex = useSharedValue(0);
 
-	console.log(isLogged);
+	console.log("Is Logged? : " + isLogged);
 
 	const onViewableItemsChanged = ({ viewableItems }) => {
 		if (viewableItems && viewableItems[0] && viewableItems[0].index !== null) {

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import { router } from "expo-router";
 import * as DocumentPicker from "expo-document-picker";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -11,11 +11,12 @@ import {
 	ScrollView,
 } from "react-native";
 
-import { icons } from "../../constants";
+import Feather from "@expo/vector-icons/Feather";
 import { createBusiness } from "../../lib/appwrite";
 import CustomButton from "../../components/CustomButton";
 import FormField from "../../components/FormField";
 import { useGlobalContext } from "../../context/GlobalProvider";
+import { useNavigation } from "@react-navigation/native";
 
 const AddNewBusiness = () => {
 	const { user } = useGlobalContext();
@@ -25,6 +26,13 @@ const AddNewBusiness = () => {
 		pdfFile: null,
 		description: "",
 	});
+
+	const navigation = useNavigation();
+	useLayoutEffect(() => {
+		navigation.setOptions({
+			title: "Add New Business",
+		});
+	}, [navigation]);
 
 	const pickPdf = async () => {
 		try {
@@ -53,7 +61,7 @@ const AddNewBusiness = () => {
 			await createBusiness({ ...form, userId: user.$id });
 
 			Alert.alert("Success", "Business Created successfully");
-			router.push("/home");
+			router.push("/profile");
 		} catch (error) {
 			console.error("Error creating business:", error);
 			Alert.alert("Error", error.message);
@@ -69,8 +77,8 @@ const AddNewBusiness = () => {
 
 	return (
 		<SafeAreaView className="bg-primary h-full">
-			<ScrollView className="px-4 my-6">
-				<Text className="text-2xl text-white font-psemibold">
+			<ScrollView className="px-5">
+				<Text className="font-sfBold text-3xl text-white font-psemibold">
 					Create Business
 				</Text>
 
@@ -91,26 +99,21 @@ const AddNewBusiness = () => {
 				/>
 
 				<View className="mt-7 space-y-2">
-					<Text className="text-base text-gray-100 font-pmedium">
+					<Text className="font-sf text-base text-gray-300">
 						Upload Pitch Deck (PDF)
 					</Text>
 
 					<TouchableOpacity onPress={pickPdf}>
 						{form.pdfFile ? (
-							<View className="w-full h-16 px-4 bg-black-100 rounded-2xl border-2 border-black-200 flex justify-center items-center">
-								<Text className="text-sm text-gray-100 font-pmedium">
-									{form.pdfFile.name}
+							<View className="w-full h-16 px-4 bg-blue rounded-2xl flex justify-center items-center">
+								<Text className="text-sm text-white font-pmedium">
+									Selected: {form.pdfFile.name}
 								</Text>
 							</View>
 						) : (
-							<View className="w-full h-16 px-4 bg-black-100 rounded-2xl border-2 border-black-200 flex justify-center items-center flex-row space-x-2">
-								<Image
-									source={icons.upload}
-									resizeMode="contain"
-									alt="upload"
-									className="w-5 h-5"
-								/>
-								<Text className="text-sm text-gray-100 font-pmedium">
+							<View className="w-full h-16 px-4 bg-blue rounded-2xl flex justify-center items-center flex-row">
+								<Feather name="upload" size={24} color="white" />
+								<Text className="ml-2 text-sm text-white font-pmedium">
 									Choose a PDF file
 								</Text>
 							</View>
@@ -123,6 +126,7 @@ const AddNewBusiness = () => {
 					handlePress={submit}
 					containerStyles="mt-7"
 					isLoading={uploading}
+					primary
 				/>
 			</ScrollView>
 		</SafeAreaView>

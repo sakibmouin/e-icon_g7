@@ -98,6 +98,19 @@ const RootLayout = () => {
 						},
 					}}
 				/>
+				<Stack.Screen
+					name="directory/AddNewBusiness"
+					options={{
+						headerShown: true,
+						headerStyle: {
+							backgroundColor: "#1B232C",
+						},
+						headerTintColor: "#f5f5f5",
+						headerTitleStyle: {
+							fontWeight: "bold",
+						},
+					}}
+				/>
 			</Stack>
 		</GlobalProvider>
 	);

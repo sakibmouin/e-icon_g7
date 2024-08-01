@@ -28,7 +28,7 @@ export default function MyBusiness() {
 
 	const handleDelete = async (id) => {
 		try {
-			const updatedBusinesses = await deletePdf($id, businesses);
+			const updatedBusinesses = await deletePdf(id, businesses);
 			setBusinesses(updatedBusinesses);
 		} catch (error) {
 			console.error("Error deleting business:", error);

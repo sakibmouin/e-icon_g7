@@ -1,4 +1,4 @@
-import { View, Text, Image, FlatList } from "react-native";
+import { View, Text, Image, FlatList, Linking } from "react-native";
 import React from "react";
 import { Stack } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -107,8 +107,9 @@ const sjig = () => {
 							<CustomButton
 								title="Apply Now"
 								handlePress={() => {
-									console.log("Clicked apply now");
+									console.log(Linking.openURL("https://sjig.drmcitclub.com"));
 								}}
+								primary
 							/>
 						</View>
 					)}
