@@ -43,12 +43,12 @@ const TabsLayout = () => {
 					}}
 				/>
 				<Tabs.Screen
-					name="fund"
+					name="directory"
 					options={{
-						title: "Funding Opportunities",
+						title: "Directory",
 						headerShown: false,
 						tabBarIcon: ({ color, focused }) => (
-							<TabIcon icon={icons.fund} color={color} />
+							<TabIcon icon={icons.community} color={color} />
 						),
 					}}
 				/>
@@ -63,15 +63,16 @@ const TabsLayout = () => {
 					}}
 				/>
 				<Tabs.Screen
-					name="community"
+					name="fund"
 					options={{
-						title: "Community",
+						title: "Funding Opportunities",
 						headerShown: false,
 						tabBarIcon: ({ color, focused }) => (
-							<TabIcon icon={icons.community} color={color} />
+							<TabIcon icon={icons.fund} color={color} />
 						),
 					}}
 				/>
+
 				<Tabs.Screen
 					name="profile"
 					options={{

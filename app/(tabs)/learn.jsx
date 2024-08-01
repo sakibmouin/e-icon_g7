@@ -5,7 +5,7 @@ import {
 	TouchableOpacity,
 	ImageBackground,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { Link, router } from "expo-router";
 import { courses } from "../data/courses";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -14,7 +14,7 @@ import { Ionicons } from "@expo/vector-icons";
 const Learn = () => {
 	const data = Object.values(courses);
 
-	const isLoading = false;
+	const [isLoading, setIsLoading] = useState(false);
 
 	return (
 		<SafeAreaView className="pb-6 px-5 bg-primary h-full">

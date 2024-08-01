@@ -32,7 +32,7 @@ const CourseInfo = () => {
 	}, [navigation]);
 
 	return (
-		<SafeAreaView className="flex-1 bg-primary p-5">
+		<SafeAreaView className="flex-1 bg-primary px-5">
 			<FlatList
 				ListHeaderComponent={
 					<CourseHeader

@@ -37,13 +37,6 @@ const Module = () => {
 	useLayoutEffect(() => {
 		navigation.setOptions({
 			title: `Module ${moduleIndex + 1}`,
-			headerStyle: {
-				backgroundColor: "#12171F",
-			},
-			headerTintColor: "#f5f5f5",
-			headerTitleStyle: {
-				fontWeight: "bold",
-			},
 		});
 	}, [navigation]);
 

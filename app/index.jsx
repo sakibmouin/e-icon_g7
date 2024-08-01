@@ -13,7 +13,7 @@ import RenderItem from "../components/onboarding/RenderItem";
 import data from "./data/onboarding";
 
 const App = () => {
-	const { loading, isLogged, user } = useGlobalContext();
+	const { loading, isLogged } = useGlobalContext();
 	const flatListRef = useAnimatedRef();
 	const x = useSharedValue(0);
 	const flatListIndex = useSharedValue(0);

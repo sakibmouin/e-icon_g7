@@ -74,7 +74,29 @@ const RootLayout = () => {
 				<Stack.Screen name="search/[query]" options={{ headerShown: false }} />
 				<Stack.Screen
 					name="course/[courseId]"
-					options={{ headerShown: false }}
+					options={{
+						headerShown: true,
+						headerStyle: {
+							backgroundColor: "#1B232C",
+						},
+						headerTintColor: "#f5f5f5",
+						headerTitleStyle: {
+							fontWeight: "bold",
+						},
+					}}
+				/>
+				<Stack.Screen
+					name="course/[courseId]/[moduleId]"
+					options={{
+						headerShown: true,
+						headerStyle: {
+							backgroundColor: "#1B232C",
+						},
+						headerTintColor: "#f5f5f5",
+						headerTitleStyle: {
+							fontWeight: "bold",
+						},
+					}}
 				/>
 			</Stack>
 		</GlobalProvider>
